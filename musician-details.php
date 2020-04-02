@@ -69,8 +69,8 @@ if (!empty($_GET['musicianId'])) {
     </fieldset>
     <?php
     if (!empty($photo)) {
-        echo 'div class="offset-2">
-        '<img src="uploads/images/' .  $photo . 'alt="Musician Photo" />
+        echo '<div class="offset-2">
+            <img src="uploads/images/' .  $photo . 'alt="Musician Photo" />
         </div>';
     }
     ?>

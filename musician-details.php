@@ -20,7 +20,7 @@ if (!empty($_GET['musicianId'])) {
     // if there is a musicianId, query the db for the details on this record so we can populate the form
     $musicianId = $_GET['musicianId'];
 
-    $db = new PDO('mysql:host=172.31.22.43; dbname=Ivan100039992', 'Ivan100039992', 'lv_T9J2gGY');
+    require_once('db.php');
 
     $sql = "SELECT * FROM musicians WHERE musicianId = $musicianId";
     $cmd = $db->prepare($sql);
@@ -42,7 +42,7 @@ if (!empty($_GET['musicianId'])) {
 }
 ?>
 
-<form method="post" action="save-musician.php">
+<form method="post" action="save-musician.php" enctype="multipart/form-data">
     <fieldset>
         <label for="name" class="col-md-2">Name: *</label>
         <input name="name" id="name" required maxlength="100" value="<?php echo $name; ?>" />
@@ -61,12 +61,19 @@ if (!empty($_GET['musicianId'])) {
     </fieldset>
     <fieldset>
         <label for="photo" class="col-md-2">Photo:</label>
-        <input name="photo" id="photo" value="<?php echo $photo; ?>" />
+        <input name="photo" id="photo" type="file" />
     </fieldset>
     <fieldset>
         <label for="city" class="col-md-2">City:</label>
         <input name="city" id="city" maxlength="50" value="<?php echo $city; ?>" />
     </fieldset>
+    <?php
+    if (!empty($photo)) {
+        echo 'div class="offset-2">
+        '<img src="uploads/images/' .  $photo . 'alt="Musician Photo" />
+        </div>';
+    }
+    ?>
     <input type="hidden" name="musicianId" id="musicianId" value="<?php echo $musicianId; ?>" />
     <button class="offset-md-2 btn btn-primary">Save</button>
 </form>

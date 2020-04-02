@@ -3,7 +3,7 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-require_once 'db.php';
+require_once('db.php');
 
 $sql = "SELECT userId, password FROM users WHERE username = :username";
 
@@ -19,7 +19,7 @@ if (!password_verify($password, $user['password'])) {
 }
 else {
     // handle a valid login 
-    session_start(); // access the current session 
+    session_start(); // access the current session that started when the page loaded can only be called once a page.
     $_SESSION['userid'] = $user['userid']; //soore user id from our query
     header('location: musicians.php'); // redirect to new page
 }

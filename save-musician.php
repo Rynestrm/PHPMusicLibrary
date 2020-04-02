@@ -21,7 +21,7 @@ if (!empty($_POST['solo'])) {
     $solo = true;
 }
 
-$photo = $_POST['photo'];
+$photo = $_FILES['photo'];
 $city = $_POST['city'];
 
 // validate inputs
@@ -50,10 +50,26 @@ if (!empty($ranking)) {
     }
 }
 
+// photo upload check 
+if (!empty($photo['name'])) {
+    $tmp_name = $photo['tmp_name'];
+    $type = mime_content_type($tmp_name);
+
+    if ($type != 'image/jpeg' && $type != 'image/png') {
+        echo "Please upload a .jpg or .png<br/>";
+        $ok = false;
+    } else {
+        // use session to name uploaded file 
+        session_start();
+        $photo = session_id() . "-" . $photo['name'];
+        move_uploaded_file($temp_name, 'uploads/images/$photo');
+    }
+}
+
 // is the form ok?
 if ($ok == true) {
     // connect
-    $db = new PDO('mysql:host=172.31.22.43; dbname=Ivan100039992', 'Ivan100039992', 'lv_T9J2gGY');
+    require_once('db.php');
 
     // set up insert or update
     if (empty($musicianId)) {

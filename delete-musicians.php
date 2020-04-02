@@ -11,7 +11,7 @@
 $musicianId = $_GET['musicianId'];
 
 // connect to the db
-$db = new PDO('mysql:host=172.31.22.43; dbname=Ivan100039992', 'Ivan100039992', 'lv_T9J2gGY');
+require_once('db.php');
 
 
 // set up SQL command to delete the selected record

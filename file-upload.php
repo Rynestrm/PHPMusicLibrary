@@ -15,7 +15,7 @@
             <label for="email">Email: </label>
             <input name="email" type="email" id="email">
         </fieldset>
-        <button>Upload Now</button>
+        <button>Upload now</button>
     </form>
 </body>
 </html>

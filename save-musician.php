@@ -100,7 +100,6 @@ if ($ok == true) {
     //echo 'Musician Saved';
     header('location:musicians.php');
 }
-?>
 
-</body>
-</html>
+require_once('footer.php');
+?>

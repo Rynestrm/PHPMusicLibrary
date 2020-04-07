@@ -82,9 +82,6 @@ if (!empty($_GET['musicianId'])) {
     <button class="offset-md-2 btn btn-primary">Save</button>
 </form>
 
-</body>
-</html>
-
 <?php 
     require_once('footer.php');
 ?>

@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
 <?php
+
+require_once('header.php');
+
+require_once('auth.php');
+
 // read the selected musicianId from the value at the end of the url
 $musicianId = $_GET['musicianId'];
 

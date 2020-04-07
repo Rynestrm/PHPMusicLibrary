@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,12 +29,28 @@
       <li class="nav-item">
         <a class="nav-link" href="musicians.php">View Musicians</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="musician-details.php">Add New Musician</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <?php
+      if (empty($_SESSION['userId'])) {
+        echo '<li class="nav-item">
+        <li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+        </li>';
+      }
+      else {
+        echo '<li class="nav-item">
+        <li class="nav-item">
+        <a class="nav-link" href="#">' . $_SESSION['username'] . '</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="logout.php">Logout</a>
+        </li>';
+      }
+      ?>
     </ul>
   </div>
 </nav>

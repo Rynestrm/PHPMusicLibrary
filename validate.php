@@ -15,12 +15,13 @@ $user = $cmd->fetch();
 
 if (!password_verify($password, $user['password'])) {
     echo 'Invalid Login';
-    exit();	
+    exit();
 }
 else {
     // handle a valid login 
     session_start(); // access the current session that started when the page loaded can only be called once a page.
-    $_SESSION['userid'] = $user['userid']; //soore user id from our query
+    $_SESSION['userId'] = $user['userId']; //store user id from our query
+    $_SESSION['username'] = $username; //store user name
     header('location: musicians.php'); // redirect to new page
 }
 

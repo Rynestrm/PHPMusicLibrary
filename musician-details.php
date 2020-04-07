@@ -4,6 +4,10 @@
 $title = 'Musician Details';
 // linking in the header page 
 require_once('header.php');
+
+// authentication check
+require_once('auth.php');
+
 // initialize variables
 
 $musicianId = null;

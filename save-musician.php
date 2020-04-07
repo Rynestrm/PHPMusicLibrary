@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
 <?php
+
+require_once('header.php');
+
+require_once('auth.php');
 // save inputs
 $musicianId = $_POST['musicianId'];  // we need the id if we are updating an existing record
 $name = $_POST['name'];

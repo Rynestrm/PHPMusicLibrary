@@ -17,7 +17,7 @@ $cmd->execute();
 $musicians = $cmd->fetchAll();
 
 // start table
-echo '<table class="table table-striped table-hover"><thead><th>Name</th><th>Label</th><th>Ranking</th><th>Solo</th><th>City</th></thead>';
+echo '<table class="table table-striped table-hover"><thead><th>Name</th><th>Label</th><th>Ranking</th><th>Solo</th><th>City</th><th></th></thead>';
 
 // loop through data and display the results
 foreach ($musicians as $value) {
@@ -27,6 +27,12 @@ foreach ($musicians as $value) {
         <td>' . $value['ranking'] . '</td>
         <td>' . $value['solo'] . '</td>
         <td>' . $value['city'] . '</td>
+        <td>';
+
+        if (!empty($value['photo'])) {
+            echo '<uploads/images/' . $value['photo'] . '"alt="musicial photo" class="thumbnail" />';
+        }
+        echo '</td>
         <td><a class="text-danger" href="delete-musicians.php?musicianId=' . $value['musicianId'] . '"
             onclick="return confirmDelete();">Delete</a></td>
         </tr>';

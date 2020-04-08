@@ -1,9 +1,20 @@
+html, body {
+    height: 100%;
+}
 
 .headerColor {
-    background-color: aquamarine;
+    background-color: #7fffd4;
     color: black;
 }
 
 .thunbnail {
     width: 75px;
+}
+
+#sticky-footer {
+    flex-shrink: 0;
+}
+
+#page-content {
+    flex: 1 0 auto;
 }

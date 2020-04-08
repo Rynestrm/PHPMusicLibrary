@@ -69,8 +69,7 @@ if ($ok == true) {
 
     // set up insert or update
     if (empty($musicianId)) {
-        $sql = "INSERT INTO musicians (name, recordLabel, ranking, solo, photo, city) VALUES
-        (:name, :recordLabel, :ranking, :solo, :photo, :city)";
+        $sql = "INSERT INTO musicians (name, recordLabel, ranking, solo, photo, city) VALUES (:name, :recordLabel, :ranking, :solo, :photo, :city)";
     }
     else {
         $sql = "UPDATE musicians SET name = :name, recordLabel = :recordLabel, ranking = :ranking, solo = :solo,

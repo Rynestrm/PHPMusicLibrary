@@ -22,7 +22,7 @@ else {
     session_start(); // access the current session that started when the page loaded can only be called once a page.
     $_SESSION['userId'] = $user['userId']; //store user id from our query
     $_SESSION['username'] = $username; //store user name
-    header('location: musicians.php'); // redirect to new page
+    header('location:musicians.php'); // redirect to new page
 }
 
 $db = null;

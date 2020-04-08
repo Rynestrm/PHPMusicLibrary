@@ -10,7 +10,8 @@ session_start()
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="d-flex flex-column">
+<main id="page-content">
 
 <!-- from https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
 

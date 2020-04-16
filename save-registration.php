@@ -21,6 +21,36 @@ if ($password != $confirm) {
     echo "passwords do not match";
     $ok = false;
 }
+
+// capcha
+$secret = "6LdDG-oUAAAAACgxxPTLKQcsOa0ZIyyjPgImFUOA";
+$userResponce = $_POST['g-recaptcha-response'];
+
+// use curl library
+$apiRequest = curl_init();
+curl_setopt($apiRequest, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+curl_setopt($apiRequest, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($apiRequest, CURLOPT_POST, true);
+
+// create an aray
+$apiPostData = array();
+$apiPostData['secret'] = $secret;
+$apiPostData['responce'] = $userResponce;
+curl_setopt($apiRequest, CURLOPT_POSTFIELDS, $apiPostData);
+
+// execute api request
+$apiResult = curl_exec($apiRequest);
+curl_close($apiRequest);
+
+// convert json to aray
+$resultArray = json_decode($apiResult, true);
+
+// check if captcha is successful
+if ($resultArray['success'] == false) {
+    echo 'Are you human?';
+    $ok = false;
+}
+
 if ($ok) {
     // 3. connect 
     require_once 'db.php';

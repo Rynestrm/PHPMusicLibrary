@@ -20,12 +20,14 @@ require_once ('header.php');
             <input type="password" name="confirm" id="confirm" required
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
         </fieldset>
+        <div class="g-recaptcha" data-sitekey="6LdDG-oUAAAAADG7kIISUKKJIavzcs7acTF8PN2b"></div>
         <div class="offset-md-2">
             <input type="submit" value="Register" class="btn btn-info" />
         </div>
     </form>
 </main>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php
 require_once 'footer.php';
 ?>
